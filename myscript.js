@@ -1,3 +1,9 @@
+let pl = 0;
+let cp = 0;
+let playerSelection = "";
+let compRoll = "";
+
+// This function creates a randomly generated roll for computer player
 function getComputerChoice() {
   let roll = "";
   let randNum = Math.floor(Math.random() * 10);
@@ -11,6 +17,7 @@ function getComputerChoice() {
   return roll;
 }
 
+// This function contains logic for one round of play.
 function playRound() {
   playerChoice = prompt("Choose rock, paper, or scissors please: ");
   compRoll = getComputerChoice();
@@ -35,6 +42,7 @@ function playRound() {
   }
 }
 
+// This function creates a best three of five game
 let game = function () {
   for (let count = 0; count <= 4; count += 1) {
     console.log(playRound());
@@ -46,8 +54,5 @@ let game = function () {
   }
 };
 
-let pl = 0;
-let cp = 0;
-let playerSelection = "";
-let compRoll = "";
+// Running the game from the console:
 console.log(game());
