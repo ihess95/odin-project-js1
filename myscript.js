@@ -43,7 +43,7 @@ function playRound() {
 }
 
 // This function creates a best three of five game
-let game = function () {
+let playGame = function () {
   for (let count = 0; count <= 4; count += 1) {
     console.log(playRound());
   }
@@ -55,4 +55,4 @@ let game = function () {
 };
 
 // Running the game from the console:
-console.log(game());
+console.log(playGame());
