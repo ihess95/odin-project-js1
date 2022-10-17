@@ -3,6 +3,7 @@ let cp = 0;
 let playerSelection = "";
 let compRoll = "";
 let btns = document.querySelectorAll("button");
+let results = document.querySelector("div.results");
 
 // This function creates a randomly generated roll for computer player
 function getComputerChoice() {
@@ -27,18 +28,18 @@ function playRound(playerChoice) {
     (playerChoice.toLowerCase() === "scissors" && compRoll === "paper")
   ) {
     pl += 1;
-    return `You win! ${playerChoice} beats ${compRoll}.`;
+    results.textContent = `You win! ${playerChoice} beats ${compRoll}.`;
   } else if (
     (playerChoice.toLowerCase() === "rock" && compRoll === "paper") ||
     (playerChoice.toLowerCase() === "paper" && compRoll === "scissors") ||
     (playerChoice.toLowerCase() === "scissors" && compRoll === "rock")
   ) {
     cp += 1;
-    return `You lose. ${compRoll} beats ${playerChoice}`;
+    results.textContent = `You lose. ${compRoll} beats ${playerChoice}`;
   } else if (playerChoice.toLowerCase() === compRoll) {
-    return `Draw! Both Players rolled ${compRoll}`;
+    results.textContent = `Draw! Both Players rolled ${compRoll}`;
   } else {
-    `Error: ${playerChoice} is not a valid roll, please roll again!`;
+    results.textContent = `Error: ${playerChoice} is not a valid roll, please roll again!`;
   }
 }
 
