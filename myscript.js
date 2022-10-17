@@ -2,6 +2,15 @@ let pl = 0;
 let cp = 0;
 let playerSelection = "";
 let compRoll = "";
+let rock = document.getElementById("rock");
+let paper = document.getElementById("paper");
+let scissors = document.getElementById("scissors");
+const output = document.createElement("div");
+const text = document.createElement("p");
+text.textContent = "testingP";
+output.appendChild(text);
+output.textContent = "testing";
+document.appendChild(output);
 
 // This function creates a randomly generated roll for computer player
 function getComputerChoice() {
@@ -18,8 +27,7 @@ function getComputerChoice() {
 }
 
 // This function contains logic for one round of play.
-function playRound() {
-  playerChoice = prompt("Choose rock, paper, or scissors please: ");
+function playRound(playerChoice) {
   compRoll = getComputerChoice();
   if (
     (playerChoice.toLowerCase() === "rock" && compRoll === "scissors") ||
@@ -43,16 +51,25 @@ function playRound() {
 }
 
 // This function creates a best three of five game
-let playGame = function () {
-  for (let count = 0; count <= 4; count += 1) {
-    console.log(playRound());
-  }
-  if (pl > cp) {
-    return `You win! Final score: Player - ${pl}, Computer - ${cp}.`;
-  } else {
-    return `You lose... Final score: Computer - ${cp}, Player - ${pl}.`;
-  }
-};
+// let playGame = function () {
+//   for (let count = 0; count <= 4; count += 1) {
+//     console.log(playRound());
+//   }
+//   if (pl > cp) {
+//     return `You win! Final score: Player - ${pl}, Computer - ${cp}.`;
+//   } else {
+//     return `You lose... Final score: Computer - ${cp}, Player - ${pl}.`;
+//   }
+// };
 
 // Running the game from the console:
-console.log(playGame());
+
+rock.addEventListener("click", () => {
+  playRound("rock");
+});
+paper.addEventListener("click", () => {
+  playRound("paper");
+});
+scissors.addEventListener("click", () => {
+  playRound("scissors");
+});
