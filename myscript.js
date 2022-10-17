@@ -2,15 +2,7 @@ let pl = 0;
 let cp = 0;
 let playerSelection = "";
 let compRoll = "";
-let rock = document.getElementById("rock");
-let paper = document.getElementById("paper");
-let scissors = document.getElementById("scissors");
-const output = document.createElement("div");
-const text = document.createElement("p");
-text.textContent = "testingP";
-output.appendChild(text);
-output.textContent = "testing";
-document.appendChild(output);
+let btns = document.querySelectorAll("button");
 
 // This function creates a randomly generated roll for computer player
 function getComputerChoice() {
@@ -64,12 +56,20 @@ function playRound(playerChoice) {
 
 // Running the game from the console:
 
-rock.addEventListener("click", () => {
-  playRound("rock");
-});
-paper.addEventListener("click", () => {
-  playRound("paper");
-});
-scissors.addEventListener("click", () => {
-  playRound("scissors");
-});
+btns.forEach((btns) =>
+  btns.addEventListener("click", () => {
+    if (btns.id) {
+      playRound(btns.id);
+      console.log(btns.id);
+    }
+  })
+);
+// rock.addEventListener("click", () => {
+//   playRound("rock");
+// });
+// paper.addEventListener("click", () => {
+//   playRound("paper");
+// });
+// scissors.addEventListener("click", () => {
+//   playRound("scissors");
+// });
