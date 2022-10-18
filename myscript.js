@@ -2,8 +2,9 @@ let pl = 0;
 let cp = 0;
 let playerSelection = "";
 let compRoll = "";
-let btns = document.querySelectorAll("button");
-let results = document.querySelector("div.results");
+const btns = document.querySelectorAll("button");
+const results = document.querySelector("div.results");
+const cpuDisplay = document.querySelector("div.cpu");
 
 // This function creates a randomly generated roll for computer player
 function getComputerChoice() {
@@ -22,6 +23,8 @@ function getComputerChoice() {
 // This function contains logic for one round of play.
 function playRound(playerChoice) {
   compRoll = getComputerChoice();
+  cpuDisplay.textContent = `The Computer rolled ${compRoll}.`;
+
   if (
     (playerChoice.toLowerCase() === "rock" && compRoll === "scissors") ||
     (playerChoice.toLowerCase() === "paper" && compRoll === "rock") ||
@@ -61,7 +64,6 @@ btns.forEach((btns) =>
   btns.addEventListener("click", () => {
     if (btns.id) {
       playRound(btns.id);
-      console.log(btns.id);
     }
   })
 );
