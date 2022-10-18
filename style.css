@@ -6,9 +6,19 @@ img {
   width: 150px;
   height: auto;
 }
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .rpsContainer {
   display: flex;
 }
 .invisible {
   display: none;
+}
+
+.rpsButton {
+  background-color: blue;
 }
