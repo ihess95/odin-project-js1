@@ -59,14 +59,7 @@ function playRound(playerChoice) {
   }
   updateScore(pl, cp);
   if (pl >= 5 || cp >= 5) {
-    btns.forEach((btns) => (btns.style.display = "none"));
-    resetButton.textContent = "Play Again?";
-    resetDiv.appendChild(resetButton);
-    if (pl > cp) {
-      return `You win! Final score: Player - ${pl}, Computer - ${cp}.`;
-    } else {
-      return `You lose... Final score: Computer - ${cp}, Player - ${pl}.`;
-    }
+    gameOver();
   }
 }
 
@@ -82,7 +75,16 @@ function resetGame() {
   btns.forEach((btns) => (btns.style.display = "inline"));
   resetDiv.removeChild(resetButton);
 }
-
+function gameOver() {
+  btns.forEach((btns) => (btns.style.display = "none"));
+  resetButton.textContent = "Play Again?";
+  resetDiv.appendChild(resetButton);
+  if (pl > cp) {
+    return `You win! Final score: Player - ${pl}, Computer - ${cp}.`;
+  } else {
+    return `You lose... Final score: Computer - ${cp}, Player - ${pl}.`;
+  }
+}
 // Running the game from the console:
 
 btns.forEach((btns) =>
