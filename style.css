@@ -6,3 +6,9 @@ img {
   width: 150px;
   height: auto;
 }
+.rpsContainer {
+  display: flex;
+}
+.invisible {
+  display: none;
+}
